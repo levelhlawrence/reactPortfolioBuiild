@@ -1,6 +1,6 @@
 function About() {
   return (
-    <section className="bg-gray-100 py-10">
+    <section className="bg-gray-100 py-10 min-h-[80vh] flex flex-col items-center justify-center">
       <p className="text-4xl">About</p>
       <p>
         Hello! I'm a passionate full-stack developer with a knack for turning

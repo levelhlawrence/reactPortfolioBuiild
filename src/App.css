@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Infinite scroll animation (Home Page) */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

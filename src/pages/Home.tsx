@@ -1,9 +1,10 @@
 import landingProfile from "../assets/images/portfolioImg-Photoroom.png";
 import wallpaper from "../assets/images/wallpaper.jpg";
+import * as motion from "motion/react-client";
 
 function Home() {
   return (
-    <section id="home-page">
+    <section id="home-page h-screen">
       <div className="overflow-hidden relative w-full">
         <article
           id="main-top"
@@ -22,13 +23,13 @@ function Home() {
             className="md:ml-20 lg:ml-34 xl:ml-40 text-center md:relative md:w-full md:mt-32 md:text-left md:ml-10 absolute left-0 bottom-0 right-0 py-6"
           >
             <div className="bg-[rgba(26,31,58,0.4)] w-screen h-full blur-3xl absolute z-30 md:bg-transparent"></div>
-            <h2 className="text-4xl lg:text-5xl md:text-black text-white font-thin relative z-40">
-              Hey I'm
+            <h2 className="text-2xl lg:text-3xl md:text-black text-white font-thin relative z-40">
+              Hi, I'm
             </h2>
-            <h1 className="text-6xl lg:text-7xl text-white md:text-black relative z-40">
+            <h1 className="text-4xl lg:text-6xl text-white md:text-black relative z-40">
               Level Lawrence
             </h1>
-            <h3 className="text-3xl lg:text-4xl text-gray-200 md:text-black font-bold relative z-40">
+            <h3 className="text-2xl lg:text-3xl text-gray-200 md:text-black font-bold relative z-40">
               Full Stack Developer
             </h3>
             <p className="relative z-40 text-white px-16 mt-4 md:text-black md:px-0 md:w-3/4">
@@ -37,10 +38,23 @@ function Home() {
               extraordinary together.
             </p>
             <div className="text-white mt-8 relative z-50">
-              <button className="bg-black px-4 py-2 rounded mr-4">
+              <motion.button
+                whileTap={{ scale: 0.8 }}
+                whileHover={{ scale: 1.05, background: "#303030" }}
+                className="hover:cursor-pointer bg-black px-4 py-2 rounded mr-4 border border-gray-500"
+              >
                 My Work
-              </button>
-              <button className="bg-sky-600 px-6 py-2 rounded">Hire Me</button>
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.8 }}
+                whileHover={{
+                  scale: 1.05,
+                  background: "rgb(14,165,233)",
+                }}
+                className="hover:cursor-pointer bg-sky-600 px-6 py-2 rounded"
+              >
+                Hire Me
+              </motion.button>
             </div>
           </aside>
 
@@ -50,7 +64,7 @@ function Home() {
                 id="bg-circle"
                 className="bg-[rgba(240,231,232,0.8)] absolute z-10 h-[20rem] w-[20rem] rounded-full right-60 bottom-[-6rem] blur-3xl"
               ></div>
-              <div className="z-40 absolute right-20 top-16 w-[32rem] lg:right-40">
+              <div className="z-40 absolute right-20 top-20 w-[32rem] lg:right-40">
                 <img src={landingProfile} alt="landing profile" />
               </div>
               <div
@@ -61,22 +75,37 @@ function Home() {
           </aside>
         </article>
 
-        <article id="main-bottom" className="h-[24vh] relative z-[80]">
+        {/* SKILL SECTION (BOTTOM) */}
+        <article id="main-bottom" className="h-[24vh] relative z-[80] mt-14">
           <aside className="bg-[#1A1F3A] h-full border-t-4 border-[#9695A6]">
             <h4 className="text-white text-center mt-4">Skills</h4>
-            <ul className="flex flex-wrap gap-4 items-center justify-center mt-6 px-4 text-2xl text-[#9695A6]">
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-              <li>MongoDB</li>
-              <li>ReactJS</li>
-              <li>NodeJS</li>
-              <li>PostgreSQL</li>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>TailwindCSS</li>
-              <li>NextJS</li>
-              <li>Vercel</li>
-              <li>AWS</li>
+            <ul
+              className="flex whitespace-nowrap text-3xl text-[#9695A6] mt-10"
+              style={{
+                animation: "scrollLeft 30s linear infinite",
+                minWidth: "200%",
+              }}
+            >
+              {[...Array(4)].flatMap(() =>
+                [
+                  "JavaScript",
+                  "TypeScript",
+                  "MongoDB",
+                  "ReactJS",
+                  "NodeJS",
+                  "PostgreSQL",
+                  "HTML",
+                  "CSS",
+                  "TailwindCSS",
+                  "NextJS",
+                  "Vercel",
+                  "AWS",
+                ].map((skill, i) => (
+                  <li key={`${skill}-${i}`} className="mr-8">
+                    {skill}
+                  </li>
+                ))
+              )}
             </ul>
           </aside>
         </article>
